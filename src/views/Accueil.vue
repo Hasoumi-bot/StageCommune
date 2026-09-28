@@ -6,26 +6,33 @@ const destination = ref('')
 const date = ref('')
 
 function Rechercher() {
-    console.log("Départ :",depart.value)
-    console.log("Destination :",destination.value)
-    console.log("Date :",date.value)
+  console.log("Départ :", depart.value)
+  console.log("Destination :", destination.value)
+  console.log("Date :", date.value)
 }
 
-function Connexion(){
-    alert("Ouverture de la connexion")
+function Connexion() {
+  alert("Ouverture de la connexion")
 }
 
 const sidebarOuverture = ref(true)
 
 function basculerSidebar() {
-    sidebarOuverture.value = !sidebarOuverture.value
+  sidebarOuverture.value = !sidebarOuverture.value
 }
 
+const darkTheme = ref(localStorage.getItem('theme') !== 'light')
+
+function changerTheme() {
+  darkTheme.value = !darkTheme.value
+
+  localStorage.setItem('theme', darkTheme.value ? 'dark' : 'light')
+}
 </script>
 
 <template>
 
-  <div class="app">
+  <div :class="['app', { dark: darkTheme, light: !darkTheme}]">
 
     <aside :class="['sidebar', {ferme: !sidebarOuverture}]">
 
@@ -33,6 +40,9 @@ function basculerSidebar() {
             {{ sidebarOuverture ? '<' : '>' }}
         </button>
 
+        <button class="btn-theme" @click="changerTheme">
+            <i :class="darkeTheme ? 'bi bi-sun' : 'bi bi-moon' "></i>
+        </button>
         <h2> Gestion Cylo-pousse </h2>
 
         <nav>

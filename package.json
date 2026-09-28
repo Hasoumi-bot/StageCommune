@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev-node" : "tsx watch src/server",
+    "dev-node": "tsx watch src/server",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.13.1",
     "express": "^5.2.1",
     "remult": "^3.3.18",
     "tsx": "^4.23.15",
