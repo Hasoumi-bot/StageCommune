@@ -5,15 +5,15 @@
 html,
 body,
 #app {
-    margin: 0;
+  margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100vh;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #141719;
+  font-family: Arial, sans-serif;
+  background: #141719;
   color: white;
 }
 
@@ -181,8 +181,11 @@ body {
   flex: 1;
   min-width: 0;
   min-height: 100vh;
-  
+
   background: #141719;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .btn-connexion {
@@ -206,8 +209,13 @@ body {
   max-width: 860px;
 
   margin: 0 auto;
-  
   padding: 40px;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .contenu h4 {
@@ -325,6 +333,7 @@ body {
 .btn-rechercher:hover {
   background: #0867ed;
 }
+
 
 /* *{
     box-sizing: border-box;
@@ -452,3 +461,5 @@ body{
 .btn-rechercher:hover {
   background: #0867ed;
 } */
+
+/* https://github.com/Hasoumi-bot/testVue.git */
