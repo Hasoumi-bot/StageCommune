@@ -16,7 +16,8 @@
     "express": "^5.2.1",
     "remult": "^3.3.18",
     "tsx": "^4.23.15",
-    "vue": "^3.5.42"
+    "vue": "^3.5.42",
+    "vue-router": "^5.3.1"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.5",
