@@ -45,7 +45,7 @@ function changerTheme() {
         </button>
 
         <button class="btn-theme" @click="changerTheme">
-            <i :class="darkeTheme ? 'bi bi-sun' : 'bi bi-moon' "></i>
+            <i :class="darkTheme ? 'bi bi-sun' : 'bi bi-moon' "></i>
         </button>
         <h2> Gestion Cylo-pousse </h2>
 
