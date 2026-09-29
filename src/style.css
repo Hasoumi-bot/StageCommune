@@ -325,6 +325,632 @@ body {
 .btn-theme i {
   font-size: 22px;
 }
+
+
+/* =========================================================
+   PAGE LOGIN
+========================================================= */
+
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--bg-principal);
+  color: var(--texte-principal);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================================================
+   BARRE DU HAUT
+========================================================= */
+
+.topbar {
+  width: 100%;
+  height: 72px;
+
+  background: var(--bg-topbar);
+
+  border-bottom: 1px solid var(--bordure);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-section {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--accent);
+
+  border-radius: 8px;
+
+  font-size: 21px;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: bold;
+
+  color: var(--texte-principal);
+
+  transition: color 0.3s ease;
+}
+
+
+/* =========================================================
+   LIENS DU HAUT
+========================================================= */
+
+.top-links {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.top-links button {
+  border: none;
+
+  background: transparent;
+
+  color: var(--texte-secondaire);
+
+  padding: 11px 18px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+  font-size: 14px;
+
+  transition:
+    background 0.2s ease,
+    color 0.3s ease;
+}
+
+.top-links button:hover {
+  color: var(--texte-principal);
+}
+
+.top-links button.active {
+  background: var(--accent-fonce);
+
+  color: white;
+}
+
+
+/* =========================================================
+   CONTENU PRINCIPAL
+========================================================= */
+
+.main-content {
+  width: 100%;
+
+  min-height: calc(100vh - 72px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  background: var(--bg-principal);
+
+  transition: background 0.3s ease;
+}
+
+
+/* =========================================================
+   CARTE DE CONNEXION
+========================================================= */
+
+.login-card {
+  width: 390px;
+  max-width: 100%;
+
+  background: var(--bg-formulaire);
+
+  border: 1px solid var(--bordure);
+
+  border-radius: 22px;
+
+  padding: 30px;
+
+  box-shadow: var(--ombre);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   TITRE
+========================================================= */
+
+.welcome span {
+  display: block;
+
+  color: var(--texte-secondaire);
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+}
+
+.welcome h1 {
+  margin: 10px 0 22px;
+
+  color: var(--texte-principal);
+
+  font-size: 23px;
+
+  line-height: 1.3;
+
+  transition: color 0.3s ease;
+}
+
+
+/* =========================================================
+   ONGLETS
+========================================================= */
+
+.tabs {
+  width: 100%;
+
+  display: flex;
+
+  background: var(--bg-tabs);
+
+  border-radius: 12px;
+
+  padding: 4px;
+
+  margin-bottom: 28px;
+
+  transition: background 0.3s ease;
+}
+
+.tabs button {
+  width: 50%;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--texte-secondaire);
+
+  padding: 11px;
+
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  transition:
+    background 0.2s ease,
+    color 0.3s ease;
+}
+
+.tabs button:hover {
+  color: var(--texte-principal);
+}
+
+.tabs button.selected {
+  background: var(--bg-tab-selectionne);
+
+  color: var(--accent);
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   GROUPE FORMULAIRE
+========================================================= */
+
+.form-group {
+  width: 100%;
+
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--texte-principal);
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   CHAMP INPUT
+========================================================= */
+
+.input-box {
+  width: 100%;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+
+  background: var(--bg-input);
+
+  border: 1px solid var(--bordure-input);
+
+  border-radius: 10px;
+
+  padding: 0 12px;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.input-box:focus-within {
+  border-color: var(--accent);
+
+  box-shadow:
+    0 0 0 2px rgba(22, 131, 255, 0.1);
+}
+
+
+/* =========================================================
+   ICÔNE INPUT
+========================================================= */
+
+.input-icon {
+  width: 25px;
+
+  display: flex;
+  align-items: center;
+
+  color: var(--texte-muted);
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.input-box input {
+  flex: 1;
+
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--texte-principal);
+
+  font-size: 14px;
+
+  transition: color 0.3s ease;
+}
+
+.input-box input::placeholder {
+  color: var(--texte-secondaire);
+}
+
+
+/* =========================================================
+   BOUTON AFFICHER MOT DE PASSE
+========================================================= */
+
+.eye-button {
+  border: none;
+
+  background: transparent;
+
+  color: var(--texte-muted);
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  padding: 0;
+}
+
+.eye-button:hover {
+  color: var(--texte-principal);
+}
+
+
+/* =========================================================
+   OPTIONS
+========================================================= */
+
+.options {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 5px 0 20px;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   SE SOUVENIR
+========================================================= */
+
+.remember {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: var(--texte-secondaire);
+}
+
+.remember input {
+  accent-color: var(--accent);
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   MOT DE PASSE OUBLIÉ
+========================================================= */
+
+.forgot {
+  border: none;
+
+  background: transparent;
+
+  color: var(--lien);
+
+  cursor: pointer;
+
+  font-size: 12px;
+
+  padding: 0;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   MESSAGE D'ERREUR
+========================================================= */
+
+.error {
+  width: 100%;
+
+  background: var(--alerte-bg);
+
+  border: 1px solid var(--alerte-bordure);
+
+  color: var(--alerte-texte);
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+
+  margin-bottom: 15px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   BOUTON CONNEXION
+========================================================= */
+
+.login-button {
+  width: 100%;
+  height: 48px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: var(--accent-fonce);
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.login-button:hover {
+  background: var(--accent-hover);
+
+  transform: translateY(-1px);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   TEXTE EN BAS
+========================================================= */
+
+.bottom-text {
+  text-align: center;
+
+  color: var(--texte-secondaire);
+
+  font-size: 12px;
+
+  margin-top: 20px;
+}
+
+.bottom-text button {
+  border: none;
+
+  background: transparent;
+
+  color: var(--lien);
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  font-size: 12px;
+}
+
+.bottom-text button:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .topbar {
+    height: 65px;
+
+    padding: 0 15px;
+  }
+
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .logo-icon {
+    width: 34px;
+    height: 34px;
+
+    font-size: 18px;
+  }
+
+  .top-links {
+    gap: 2px;
+  }
+
+  .top-links button {
+    padding: 9px 10px;
+
+    font-size: 13px;
+  }
+
+  .main-content {
+    min-height: calc(100vh - 65px);
+
+    padding: 25px 15px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 390px;
+
+    padding: 25px 20px;
+
+    border-radius: 18px;
+  }
+
+  .welcome h1 {
+    font-size: 21px;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETIT ÉCRAN
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .topbar {
+    padding: 0 10px;
+  }
+
+  .logo-section {
+    gap: 7px;
+  }
+
+  .logo-text {
+    font-size: 14px;
+  }
+
+  .top-links button {
+    padding: 8px 7px;
+
+    font-size: 12px;
+  }
+
+  .login-card {
+    padding: 22px 16px;
+  }
+
+  .welcome h1 {
+    font-size: 19px;
+  }
+
+  .options {
+    font-size: 11px;
+  }
+
+  .forgot {
+    font-size: 11px;
+  }
+}
 /* *{
     box-sizing: border-box;
 }
