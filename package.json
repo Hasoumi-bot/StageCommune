@@ -17,7 +17,9 @@
     "remult": "^3.3.18",
     "tsx": "^4.23.15",
     "vue": "^3.5.42",
-    "vue-router": "^5.3.1"
+    "vue-qrcode-reader": "^5.7.3",
+    "vue-router": "^5.3.1",
+    "webrtc-adapter": "^9.0.6"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.5",
