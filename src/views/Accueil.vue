@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref,watchEffect } from 'vue'
 
 const depart = ref('')
 const destination = ref('')
@@ -22,6 +22,10 @@ function basculerSidebar() {
 }
 
 const darkTheme = ref(localStorage.getItem('theme') !== 'light')
+
+watchEffect(() =>{
+    document.documentElement.className = darkTheme.value ? 'dark' : 'light'
+})
 
 function changerTheme() {
   darkTheme.value = !darkTheme.value

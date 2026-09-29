@@ -81,11 +81,7 @@ body {
   color: var(--texte-principal);
   border-right: 1px solid var(--bordure);
   padding: 15px;
-  transition:
-    width 0.3s ease,
-    min-width 0.3s ease,
-    background 0.3s ease,
-    color 0.3s ease;
+  transition: width 0.3s ease,min-width 0.3s ease,background 0.3s ease,color 0.3s ease;
 }
 
 .sidebar.ferme {
@@ -115,10 +111,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   font-size: 15px;
-  transition:
-    background 0.2s ease,
-    color 0.3s ease,
-    opacity 0.2s ease;
+  transition: background 0.2s ease,color 0.3s ease,opacity 0.2s ease;
 }
 
 .sidebar nav button:hover {
@@ -283,10 +276,7 @@ body {
   padding: 0 18px;
   color: var(--texte-principal);
   font-size: 15px;
-  transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease;
+  transition: background 0.3s ease,border-color 0.3s ease,color 0.3s ease;
 }
 
 .formulaire input::placeholder {
