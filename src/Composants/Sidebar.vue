@@ -8,8 +8,8 @@
         <h2> Gestion Cylo-pousse </h2>
 
         <nav>
-            <button>Recherche</button>
-            <button>Connexion</button>
+            <router-link to="/">Accueil</router-link>
+            <router-link to="/trajet">Trajets</router-link>
         </nav>
 
         <div class="carte">
@@ -30,6 +30,7 @@ function basculerSidebar() {
 </script>
 
 <style>
+/*
 * {
   box-sizing: border-box;
 }
@@ -357,6 +358,23 @@ body {
 .btn-rechercher:hover {
   background: #0867ed;
 }
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* *{
     box-sizing: border-box;

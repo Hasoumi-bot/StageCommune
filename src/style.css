@@ -1,3 +1,6 @@
+@import "tailwindcss";
+
+/*
 * {
   box-sizing: border-box;
 }
@@ -203,7 +206,6 @@ body {
 
 .contenu {
   width: 100%;
-  max-width: 860px;
 
   margin: 0 auto;
   
@@ -325,6 +327,13 @@ body {
 .btn-rechercher:hover {
   background: #0867ed;
 }
+*/
+
+
+
+
+
+
 
 /* *{
     box-sizing: border-box;

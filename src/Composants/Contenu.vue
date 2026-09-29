@@ -1,10 +1,9 @@
 <template>
-<main class="main">
 
         
 
-        <section class="contenu">
-            <div class="alerte">
+        <section class="contenu w-full">
+            <!--div class="alerte">
                 <strong>Serveur non disponible</strong>
                 <p>Le backend n'est pas disponible</p>
             </div>
@@ -18,10 +17,10 @@
                 <input v-model="destination" placeholder="Destination">
                 <input v-model="date" type="date" >
                 <button class="btn-rechercher" @click="Rechercher"> Rechercher </button>
-            </div>
+            </div-->
+            <RouterView />
         </section>
 
-    </main>
 </template>
 
 <script setup>
@@ -39,3 +38,9 @@ function Rechercher() {
     console.log("Date :",date.value)
 }
 </script>
+
+<style>
+.contenu{
+    width: 100%;
+}
+</style>
