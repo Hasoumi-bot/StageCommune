@@ -6,58 +6,54 @@ const router = useRouter()
 
 const mode = ref('connexion')
 
-const email = ref('')
-const password = ref('')
-const nom = ref('')
-const erreur = ref('')
-const afficherPassword = ref(false)
-const souvenir = ref(false)
+// const email = ref('')
+// const password = ref('')
+// const nom = ref('')
+// const erreur = ref('')
+// const afficherPassword = ref(false)
+// const souvenir = ref(false)
 
-function seConnecter() {
-  erreur.value = ''
+// function seConnecter() {
+//   erreur.value = ''
 
-  // ADMIN
-  if (email.value === 'adrianotrabe@gmail.com' && password.value === 'Adrianot152327') {
-    sessionStorage.setItem('connecte', 'true')
-    sessionStorage.setItem('role', 'admin')
+//   if (email.value === 'adrianotrabe@gmail.com' && password.value === 'Adrianot152327') {
+//     sessionStorage.setItem('connecte', 'true')
+//     sessionStorage.setItem('role', 'admin')
 
-    router.push('/')
-    return
-  }
+//     router.push('/')
+//     return
+//   }
 
-  // UTILISATEUR
-  if (email.value === 'user' && password.value === '1234') {
-    sessionStorage.setItem('connecte', 'true')
-    sessionStorage.setItem('role', 'utilisateur')
+//   if (email.value === 'user' && password.value === '1234') {
+//     sessionStorage.setItem('connecte', 'true')
+//     sessionStorage.setItem('role', 'utilisateur')
 
-    router.push('/utilisateur')
-    return
-  }
+//     router.push('/utilisateur')
+//     return
+//   }
 
-  erreur.value = "Nom d'utilisateur ou mot de passe incorrect"
-}
+//   erreur.value = "Nom d'utilisateur ou mot de passe incorrect"
+// }
 
-function inscription() {
-  erreur.value = ''
+// function inscription() {
+//   erreur.value = ''
 
-  if (!nom.value || !email.value || !password.value) {
-    erreur.value = 'Veuillez remplir tous les champs'
-    return
-  }
+//   if (!nom.value || !email.value || !password.value) {
+//     erreur.value = 'Veuillez remplir tous les champs'
+//     return
+//   }
 
-  erreur.value = 'L’inscription sera disponible prochainement.'
-}
+//   erreur.value = 'L’inscription sera disponible prochainement.'
+// }
 
-function changerMode(nouveauMode) {
-  mode.value = nouveauMode
-  erreur.value = ''
-}
+// function changerMode(nouveauMode) {
+//   mode.value = nouveauMode
+//   erreur.value = ''
+// }
 </script>
 
 <template>
   <div class="login-page">
-
-    <!-- BARRE DU HAUT -->
     <header class="topbar">
 
       <div class="logo-section">
@@ -69,25 +65,17 @@ function changerMode(nouveauMode) {
       </div>
 
       <div class="top-links">
-        <button
-          :class="{ active: mode === 'connexion' }"
-          @click="changerMode('connexion')"
-        >
+        <button :class="{ active: mode === 'connexion' }" @click="changerMode('connexion')">
           Connexion
         </button>
 
-        <button
-          :class="{ active: mode === 'inscription' }"
-          @click="changerMode('inscription')"
-        >
+        <button :class="{ active: mode === 'inscription' }" @click="changerMode('inscription')">
           Inscription
         </button>
       </div>
 
     </header>
 
-
-    <!-- CONTENU -->
     <main class="main-content">
 
       <div class="login-card">
@@ -95,40 +83,23 @@ function changerMode(nouveauMode) {
         <div class="welcome">
           <span>BIENVENUE</span>
 
-          <h1>
-            {{ mode === 'connexion'
-              ? 'Connexion à Cyclo-Pousse'
-              : 'Créer un compte'
-            }}
+          <h1> {{ mode === 'connexion' ? 'Connexion à Cyclo-Pousse' : 'Créer un compte' }}
           </h1>
         </div>
 
-
-        <!-- ONGLETS -->
         <div class="tabs">
 
-          <button
-            :class="{ selected: mode === 'connexion' }"
-            @click="changerMode('connexion')"
-          >
+          <button :class="{ selected: mode === 'connexion' }" @click="changerMode('connexion')">
             Connexion
           </button>
 
-          <button
-            :class="{ selected: mode === 'inscription' }"
-            @click="changerMode('inscription')"
-          >
+          <button :class="{ selected: mode === 'inscription' }" @click="changerMode('inscription')">
             Inscription
           </button>
 
         </div>
 
-
-        <!-- CONNEXION -->
-        <form
-          v-if="mode === 'connexion'"
-          @submit.prevent="seConnecter"
-        >
+        <form v-if="mode === 'connexion'"  @submit.prevent="seConnecter">
 
           <div class="form-group">
 
@@ -138,11 +109,7 @@ function changerMode(nouveauMode) {
 
               <span class="input-icon">✉</span>
 
-              <input
-                v-model="email"
-                type="text"
-                placeholder="admin ou user"
-              />
+              <input v-model="email" type="text" placeholder="admin ou user"/>
 
             </div>
 
@@ -157,11 +124,7 @@ function changerMode(nouveauMode) {
 
               <span class="input-icon">🔒</span>
 
-              <input
-                v-model="password"
-                :type="afficherPassword ? 'text' : 'password'"
-                placeholder="••••••••"
-              />
+              <input v-model="password" :type="afficherPassword ? 'text' : 'password'" placeholder="••••••••" />
 
               <button
                 type="button"

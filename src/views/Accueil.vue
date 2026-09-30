@@ -38,52 +38,24 @@ function allerRecherche() {
 
 <template>
 
-  <div :class="['app', {
-    dark: darkTheme,
-    light: !darkTheme
-  }]">
-
-    <!-- =========================
-         SIDEBAR
-    ========================== -->
+  <div :class="['app', { dark: darkTheme, light: !darkTheme}]">
 
     <aside
-      :class="[
-        'sidebar',
-        { ferme: !sidebarOuverture }
-      ]"
+      :class="['sidebar', { ferme: !sidebarOuverture }]"
     >
 
-      <button
-        class="btn-sidebar"
-        @click="basculerSidebar"
-      >
+      <button class="btn-sidebar" @click="basculerSidebar">
         {{ sidebarOuverture ? '<' : '>' }}
       </button>
 
-
-      <!-- THEME -->
-
-      <button
-        class="btn-theme"
-        @click="changerTheme"
-      >
-        <i
-          :class="
-            darkTheme
-              ? 'bi bi-sun'
-              : 'bi bi-moon'
-          "
-        ></i>
+      <button class="btn-theme" @click="changerTheme">
+        <i :class=" darkTheme ? 'bi bi-sun': 'bi bi-moon'"></i>
       </button>
 
 
       <h2>
         Gestion Cyclo-pousse
       </h2>
-
-
-      <!-- MENU -->
 
       <nav>
 
@@ -92,36 +64,23 @@ function allerRecherche() {
         </button>
 
         <button @click="allerLogin">
-          Connexion
+          connexion
         </button>
 
       </nav>
 
-
-      <!-- CARTE -->
-
       <div class="carte">
 
-        <h3>
-          Carte des trajets
-        </h3>
+        <h3> Carte des trajets </h3>
 
-        <p>
-          Voir les quartiers sur Google Maps.
-        </p>
+        <p> Voir les quartiers sur Google Maps.</p>
 
       </div>
 
     </aside>
 
 
-    <!-- =========================
-         PARTIE PRINCIPALE
-    ========================== -->
-
     <main class="main">
-
-      <!-- HEADER -->
 
       <header class="header">
 
@@ -131,21 +90,13 @@ function allerRecherche() {
 
         <div class="header-droite">
 
-          <button
-            class="btn-connexion"
-            @click="allerLogin"
-          >
-            Connexion
+          <button class="btn-connexion" @click="allerLogin">
+            connexion
           </button>
 
         </div>
 
       </header>
-
-
-      <!-- =========================
-           CONTENU DYNAMIQUE
-      ========================== -->
 
       <section class="contenu">
 
