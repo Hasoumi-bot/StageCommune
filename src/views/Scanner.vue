@@ -24,6 +24,9 @@ const result = ref("")
 
 const onDetect = (detectedCodes)=>{
     result.value = detectedCodes[0].rawValue
+    if(result.value.startsWith("http") || result.value.startsWith("https")){
+        window.location.href = result.value
+    }
     alert("detecté: "+ result.value)
     console.log(result.value)
 }
