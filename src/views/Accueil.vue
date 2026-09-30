@@ -1,19 +1,6 @@
 <script setup>
-import { ref,watchEffect } from 'vue'
-
-const depart = ref('')
-const destination = ref('')
-const date = ref('')
-
-function Rechercher() {
-  console.log("Départ :", depart.value)
-  console.log("Destination :", destination.value)
-  console.log("Date :", date.value)
-}
-
-function Connexion() {
-  alert("Ouverture de la connexion")
-}
+import router from '@/router'
+import { ref, watchEffect } from 'vue'
 
 const sidebarOuverture = ref(true)
 
@@ -21,79 +8,104 @@ function basculerSidebar() {
   sidebarOuverture.value = !sidebarOuverture.value
 }
 
-const darkTheme = ref(localStorage.getItem('theme') !== 'light')
+const darkTheme = ref(
+  localStorage.getItem('theme') !== 'light'
+)
 
-watchEffect(() =>{
-    document.documentElement.className = darkTheme.value ? 'dark' : 'light'
+watchEffect(() => {
+  document.documentElement.className =
+    darkTheme.value ? 'dark' : 'light'
 })
 
 function changerTheme() {
   darkTheme.value = !darkTheme.value
 
-  localStorage.setItem('theme', darkTheme.value ? 'dark' : 'light')
+  localStorage.setItem(
+    'theme',
+    darkTheme.value ? 'dark' : 'light'
+  )
+}
+
+function allerLogin() {
+  router.push('/login')
+}
+
+function allerRecherche() {
+  router.push('/')
 }
 </script>
+
 
 <template>
 
   <div :class="['app', { dark: darkTheme, light: !darkTheme}]">
 
-    <aside :class="['sidebar', {ferme: !sidebarOuverture}]">
+    <aside
+      :class="['sidebar', { ferme: !sidebarOuverture }]"
+    >
 
-        <button class="btn-sidebar" @click="basculerSidebar">
-            {{ sidebarOuverture ? '<' : '>' }}
+      <button class="btn-sidebar" @click="basculerSidebar">
+        {{ sidebarOuverture ? '<' : '>' }}
+      </button>
+
+      <button class="btn-theme" @click="changerTheme">
+        <i :class=" darkTheme ? 'bi bi-sun': 'bi bi-moon'"></i>
+      </button>
+
+
+      <h2>
+        Gestion Cyclo-pousse
+      </h2>
+
+      <nav>
+
+        <button @click="allerRecherche">
+          Recherche
         </button>
 
-        <button class="btn-theme" @click="changerTheme">
-            <i :class="darkTheme ? 'bi bi-sun' : 'bi bi-moon' "></i>
+        <button @click="allerLogin">
+          connexion
         </button>
-        <h2> Gestion Cylo-pousse </h2>
 
-        <nav>
-            <button>Recherche</button>
-            <button>Connexion</button>
-        </nav>
+      </nav>
 
-        <div class="carte">
-            <h3>Carte des trajets</h3>
-            <p>Voir les quartiers sur Google Maps.</p>
-        </div>
+      <div class="carte">
+
+        <h3> Carte des trajets </h3>
+
+        <p> Voir les quartiers sur Google Maps.</p>
+
+      </div>
 
     </aside>
 
+
     <main class="main">
 
-        <header class="header">
+      <header class="header">
 
-            <span>Recher un trajet</span>
+        <span>
+          Cyclo-Pousse
+        </span>
 
-            <button class="btn-connexion" @click="Connexion"> Connexion</button>
+        <div class="header-droite">
 
-        </header>
+          <button class="btn-connexion" @click="allerLogin">
+            connexion
+          </button>
 
-        <section class="contenu">
-            <div class="alerte">
-                <strong>Serveur non disponible</strong>
-                <p>Le backend n'est pas disponible</p>
-            </div >
+        </div>
 
-            <h4>CYCLO-POUSSE ANTSIRABE</h4>
+      </header>
 
-            <H1> Où allez-vous? </H1>
+      <section class="contenu">
 
-            <div class="formulaire">
-                <input v-model="depart" type="text" placeholder="Lieu de depart">
-                <input v-model="destination" placeholder="Destination">
-                <input v-model="date" type="date" >
-                <button class="btn-rechercher" @click="Rechercher"> Rechercher </button>
-            </div>
-        </section>
+        <RouterView />
+
+      </section>
 
     </main>
 
   </div>
+
 </template>
-
-<style scoped>
-
-</style>
