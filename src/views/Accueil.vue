@@ -82,21 +82,30 @@ function allerRecherche() {
 
     <main class="main">
 
-      <header class="header">
+<header class="topbar">
 
-        <span>
-          Cyclo-Pousse
-        </span>
+      <div class="logo-section">
+        <div class="logo-icon"><i :class=" 'bi bi-bicycle'"></i></div>
 
-        <div class="header-droite">
-
-          <button class="btn-connexion" @click="allerLogin">
-            connexion
-          </button>
-
+        <div class="logo-text">
+          <strong>Cyclo-Pousse</strong>
         </div>
+      </div>
 
-      </header>
+      <div class="top-links">
+        <button @click="allerLogin">
+          Connexion
+        </button>
+
+        <!-- <button
+          :class="{ active: mode === 'inscription' }"
+          @click="changerMode('inscription')"
+        >
+          Inscription
+        </button> -->
+      </div>
+
+    </header>
 
       <section class="contenu">
 

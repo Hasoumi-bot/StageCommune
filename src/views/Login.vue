@@ -58,11 +58,11 @@ function changerMode(nouveauMode) {
 <template>
   <div class="login-page">
 
-    <!-- BARRE DU HAUT -->
+    <!-- BARRE DU HAUT
     <header class="topbar">
 
       <div class="logo-section">
-        <div class="logo-icon">🚲</div>
+        <div class="logo-icon"><i :class=" 'bi bi-bicycle'"></i></div>
 
         <div class="logo-text">
           <strong>Cyclo-Pousse</strong>
@@ -85,7 +85,7 @@ function changerMode(nouveauMode) {
         </button>
       </div>
 
-    </header>
+    </header> -->
 
 
     <!-- CONTENU -->
@@ -156,7 +156,7 @@ function changerMode(nouveauMode) {
 
             <div class="input-box">
 
-              <span class="input-icon">🔒</span>
+              <span :class="'bi bi-cadena'"></span>
 
               <input
                 v-model="password"
