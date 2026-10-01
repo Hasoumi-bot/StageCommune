@@ -1,6 +1,5 @@
 <script setup>
 import { ref,watchEffect } from 'vue'
-import { RouterView } from 'vue-router'
 
 const depart = ref('')
 const destination = ref('')
@@ -52,9 +51,8 @@ function changerTheme() {
 
         <nav>
             <button>Recherche</button>
-            <router-link to="/Scanner" >Scanner</router-link>
-            <button>Connexion</button>
-
+            <router-link to="/Scann">Scann</router-link>
+            <router-link to="/Login">Connexion</router-link>
         </nav>
 
         <div class="carte">
@@ -75,8 +73,6 @@ function changerTheme() {
         </header>
 
         <section class="contenu">
-            <router-view />
-
             <!--div class="alerte">
                 <strong>Serveur non disponible</strong>
                 <p>Le backend n'est pas disponible</p>
@@ -92,6 +88,8 @@ function changerTheme() {
                 <input v-model="date" type="date" >
                 <button class="btn-rechercher" @click="Rechercher"> Rechercher </button>
             </div-->
+
+            <RouterView />
         </section>
 
     </main>

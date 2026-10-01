@@ -58,7 +58,7 @@ function changerMode(nouveauMode) {
   <div class="login-page">
 
     <!-- BARRE DU HAUT -->
-    <header class="topbar">
+    <!--header class="topbar">
 
       <div class="logo-section">
         <div class="logo-icon">🚲</div>
@@ -84,7 +84,7 @@ function changerMode(nouveauMode) {
         </button>
       </div>
 
-    </header>
+    </header-->
 
 
     <!-- CONTENU -->
@@ -250,6 +250,22 @@ function changerMode(nouveauMode) {
 
             </div>
 
+          </div>
+
+          <div class="form-group">
+
+          <label>Prénom(s)</label>
+
+            <div class="input-box">
+
+              <span class="input-icon">👤</span>
+
+              <input
+                type="text"
+                placeholder="Votre prénom(s)"
+              />
+
+            </div>
           </div>
 
 
