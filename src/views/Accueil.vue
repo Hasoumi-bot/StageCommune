@@ -1,19 +1,10 @@
 <script setup>
-import { ref,watchEffect } from 'vue'
+import { ref } from 'vue'
+import { RouterView, useRouter } from 'vue-router'
 
-const depart = ref('')
-const destination = ref('')
-const date = ref('')
+const router = useRouter()
 
-function Rechercher() {
-  console.log("Départ :", depart.value)
-  console.log("Destination :", destination.value)
-  console.log("Date :", date.value)
-}
 
-function Connexion() {
-  alert("Ouverture de la connexion")
-}
 
 const sidebarOuverture = ref(true)
 
@@ -21,82 +12,191 @@ function basculerSidebar() {
   sidebarOuverture.value = !sidebarOuverture.value
 }
 
-const darkTheme = ref(localStorage.getItem('theme') !== 'light')
 
-watchEffect(() =>{
-    document.documentElement.className = darkTheme.value ? 'dark' : 'light'
-})
+
+const darkTheme = ref(
+  localStorage.getItem('theme') !== 'light'
+)
 
 function changerTheme() {
   darkTheme.value = !darkTheme.value
 
-  localStorage.setItem('theme', darkTheme.value ? 'dark' : 'light')
+  localStorage.setItem(
+    'theme',
+    darkTheme.value ? 'dark' : 'light'
+  )
+}
+
+
+
+function allerLogin() {
+  router.push('/login')
+}
+
+function allerRecherche() {
+  router.push('/')
+}
+
+function allerScanner() {
+  router.push('/scanner')
 }
 </script>
 
+
 <template>
 
-  <div :class="['app', { dark: darkTheme, light: !darkTheme}]">
 
-    <aside :class="['sidebar', {ferme: !sidebarOuverture}]">
+  <div
+    :class="[
+      'app',
+      {
+        dark: darkTheme,
+        light: !darkTheme
+      }
+    ]"
+  >
 
-        <button class="btn-sidebar" @click="basculerSidebar">
-            {{ sidebarOuverture ? '<' : '>' }}
+
+    <aside
+      :class="[
+        'sidebar',
+        {
+          ferme: !sidebarOuverture
+        }
+      ]"
+    >
+
+  
+      <button
+        class="btn-sidebar"
+        @click="basculerSidebar"
+      >
+        {{ sidebarOuverture ? '<' : '>' }}
+      </button>
+
+      <button
+        class="btn-theme"
+        @click="changerTheme"
+      >
+        <i
+          :class="
+            darkTheme
+              ? 'bi bi-sun'
+              : 'bi bi-moon'
+          "
+        ></i>
+      </button>
+
+      <h2 v-if="sidebarOuverture">
+        Gestion Cyclo-pousse
+      </h2>
+
+
+      <nav>
+
+        <button
+          @click="allerRecherche"
+        >
+          <i class="bi bi-search"></i>
+
+          <span v-if="sidebarOuverture">
+            Recherche
+          </span>
         </button>
 
-        <button class="btn-theme" @click="changerTheme">
-            <i :class="darkTheme ? 'bi bi-sun' : 'bi bi-moon' "></i>
+
+        <button
+          @click="allerLogin"
+        >
+          <i class="bi bi-person"></i>
+
+          <span v-if="sidebarOuverture">
+            Connexion
+          </span>
         </button>
-        <h2> Gestion Cylo-pousse </h2>
 
-        <nav>
-            <button>Recherche</button>
-            <router-link to="/Scann">Scann</router-link>
-            <router-link to="/Login">Connexion</router-link>
-        </nav>
 
-        <div class="carte">
-            <h3>Carte des trajets</h3>
-            <p>Voir les quartiers sur Google Maps.</p>
-        </div>
+        <button
+          @click="allerScanner"
+        >
+          <i class="bi bi-qr-code-scan"></i>
+
+          <span v-if="sidebarOuverture">
+            Scanner
+          </span>
+        </button>
+
+      </nav>
+
+
+
+      <div
+        v-if="sidebarOuverture"
+        class="carte"
+      >
+
+        <h3>
+          Carte des trajets
+        </h3>
+
+        <p>
+          Voir les quartiers sur Google Maps.
+        </p>
+
+        <button class="btn-deconnexion">
+          <i class="bi bi-box-arrow-right"></i>
+          Déconnexion
+        </button>
+
+      </div>
 
     </aside>
 
+
+
     <main class="main">
 
-        <header class="header">
 
-            <span>Recher un trajet</span>
+      <header class="topbar">
 
-            <button class="btn-connexion" @click="Connexion"> Connexion</button>
+        <div class="logo-section">
 
-        </header>
+          <div class="logo-icon">
+            <i class="bi bi-bicycle"></i>
+          </div>
 
-        <section class="contenu">
-            <!--div class="alerte">
-                <strong>Serveur non disponible</strong>
-                <p>Le backend n'est pas disponible</p>
-            </div >
+          <div class="logo-text">
+            <strong>
+              Cyclo-Pousse
+            </strong>
+          </div>
 
-            <h4>CYCLO-POUSSE ANTSIRABE</h4>
+        </div>
 
-            <H1> Où allez-vous? </H1>
 
-            <div class="formulaire">
-                <input v-model="depart" type="text" placeholder="Lieu de depart">
-                <input v-model="destination" placeholder="Destination">
-                <input v-model="date" type="date" >
-                <button class="btn-rechercher" @click="Rechercher"> Rechercher </button>
-            </div-->
+        <div class="top-links">
 
-            <RouterView />
-        </section>
+          <button
+            @click="allerLogin"
+          >
+            <i class="bi bi-person"></i>
+            Connexion
+          </button>
+
+        </div>
+
+      </header>
+
+
+
+      <section class="contenu">
+
+        <RouterView />
+
+      </section>
 
     </main>
 
   </div>
+
 </template>
-
-<style scoped>
-
-</style>

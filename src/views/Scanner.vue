@@ -1,10 +1,15 @@
 <template>
-<qrcode-stream class="scanner"></qrcode-stream>
+
+<qrcode-stream class="scanner">
+
+</qrcode-stream>
+
 <p v-if="result">Resultat du scann: {{ result }}</p>
+
 <div class="container-scanner">
     <qrcode-stream @detect="onDetect" @init="onInit"></qrcode-stream>
 </div>
->>>>>>> 55fedad (Le scanner fonctionne)
+
 </template>
 
 <script setup>

@@ -1,12 +1,7 @@
 <script setup>
-import Accueil from './views/Accueil.vue';
-import Scanner from './views/Scanner.vue';
+import { RouterView } from 'vue-router'
 </script>
+
 <template>
-  <!--Scanner /-->
-<Accueil/>
+  <RouterView />
 </template>
-
-<style scoped>
-
-</style>
