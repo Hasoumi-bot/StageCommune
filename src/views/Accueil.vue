@@ -73,8 +73,10 @@ function allerRecherche() {
 
         <h3> Carte des trajets </h3>
 
+        
         <p> Voir les quartiers sur Google Maps.</p>
-
+        
+        <button class="btn-deconnexion">Deconnexion</button>
       </div>
 
     </aside>

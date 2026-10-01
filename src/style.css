@@ -163,6 +163,24 @@ body {
   background: #168cff;
 }
 
+.btn-deconnexion {
+  width: 85px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 13px;
+  gap: 8px;
+}
+
 .main {
   flex: 1;
   min-width: 0;
@@ -395,8 +413,8 @@ body {
 ========================================================= */
 
 .top-links {
-  width: 100px;
-  height: 38px;
+  width: 85px;
+  height: 35px;
 
   display: flex;
   align-items: center;
