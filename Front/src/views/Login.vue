@@ -1,4 +1,3 @@
-
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -14,18 +13,49 @@ const erreur = ref('')
 const afficherPassword = ref(false)
 const souvenir = ref(false)
 
-function seConnecter() {
+async function seConnecter() {
   erreur.value = ''
 
-  // ADMIN
-  if (email.value === 'adrianotrabe@gmail.com' && password.value === 'Adrianot152327') {
-    sessionStorage.setItem('connecte', 'true')
-    sessionStorage.setItem('role', 'admin')
-
-    router.push('/')
+  if (!email.value || !password.value){
+    erreur.value = 'Veuillez remplir tous les champs'
     return
   }
 
+  try{
+    const reponse = await fetch('http://localhost/gestioncyclocua2026/API.php',{
+      method : 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body : JSON.stringify({
+        action : 'connexion',
+        email : email.value,
+        motDePasse: password.value
+      })
+    })
+
+    const resultat = await reponse.json()
+
+    if(resultat.success){
+      sessionStorage.setItem('connecte', 'true')
+
+      sessionStorage.setItem(
+        'role',
+        resultat.utilisateur.STATUTUTITILISATEUR
+      )
+
+      if(resultat.utilisateur.STATUTUTITILISATEUR === 'admin'){
+        router.push('scanner')
+      }else{
+        router.push('scanner')
+      }
+    }else{
+      erreur.value = resultat.message
+    }
+  }catch(e) {
+    erreur.value = 'Erreur de connexion au serveur'
+  }
+}
   // UTILISATEUR
   if (email.value === 'user' && password.value === '1234') {
     sessionStorage.setItem('connecte', 'true')
@@ -237,6 +267,42 @@ function changerMode(nouveauMode) {
           @submit.prevent="inscription"
         >
 
+
+          <div class="form-group">
+
+            <label>Code postal</label>
+
+            <div class="input-box">
+
+              <span class="input-icon"></span>
+
+              <input
+                type="text"
+                placeholder="Ex 110"
+              />
+
+            </div>
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Statut</label>
+
+            <div class="input-box">
+
+              <span class="input-icon"></span>
+
+              <select class="choice">
+                <option value="">Choisir un statut</option>
+                <option value="admin">Admin</option>
+                <option value="controleur">Contrôleur</option>
+              </select>
+
+            </div>
+          </div>
+
+
           <div class="form-group">
 
             <label>Nom</label>
@@ -284,6 +350,25 @@ function changerMode(nouveauMode) {
                 v-model="email"
                 type="email"
                 placeholder="ton@email.com"
+              />
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Téléphone </label>
+
+            <div class="input-box">
+
+              <span class="input-icon">☎</span>
+
+              <input
+                v-model="telephone"
+                type="email"
+                placeholder="Entrer le numéro"
               />
 
             </div>

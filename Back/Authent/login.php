@@ -6,16 +6,16 @@ include("configuration.php");
 class login{
     private $DB;
 
-    private function  __construct($conn){
-        $this->DB = $conn
+    public function  __construct($conn){
+        $this->DB = $conn;
     }
 
-    public function connecter($connexion, $email, $motDePasse)
+    public function connecter($email, $motDePasse)
     {
         try{
 
-        $requete = $connexion->prepare(
-            "SELECT * FROM utilisateur WHERE EMAILUTILISATEUR =: email"
+        $requete = $this->DB->prepare(
+            "SELECT * FROM utilisateur WHERE EMAILUTILISATEUR = :email"
         );
 
         $requete->execute([':email'=>$email]);
@@ -29,7 +29,7 @@ class login{
         }
         elseif(!password_verify($motDePasse, $utilisateur['MDPUTILISATEUR'])){
             return [
-                "success" => false;
+                "success" => false,
                 "message" => "Email ou mot de passe incorrect"
             ];
         }
@@ -50,12 +50,13 @@ class login{
            "message" => "Erreur lors de la connexion"
       ];
     }
+  }
 
-    public function inscription($connexion,$IdCommune, $Nom, $Prenom, $email, $statut, $telephone, $motDePasse){
+    public function inscription($IdCommune, $Nom, $Prenom, $email, $motDePasse, $statut, $telephone){
         try{
 
 
-            $requete = $connexion->prepare(
+            $requete = $this->DB->prepare(
                 "INSERT INTO utilisateur(IDENTIFIANTCOMMUNE,NOMUTILISATEUR,	PRENOMUTILISATEUR,	EMAILUTILISATEUR, MDPUTILISATEUR,STATUTUTILISATEUR,TELEPHONEUTILISATEUR) VALUES 
                 (:IdCommune,:nom,:prenom,:mail,:motdepasse,:statut,:telephone)"
             );
@@ -65,9 +66,22 @@ class login{
                 ':nom' => $Nom,
                 ':prenom' => $Prenom,
                 ':mail' => $email,
-                ':motdepasse' => 
-            ])
-        }
+                ':motdepasse' => password_hash($motDePasse, PASSWORD_DEFAULT),
+                ':statut' => $statut,
+                ':telephone' => $telephone
+            ]);
 
-    }
+            return[
+            "success" => true,
+            "message" => "inscrition reussie"
+            ];
+        }
+        catch(PDOException $e){
+
+        return[
+            "success" => false,
+            "message" => "Erreur lors de la connexion"
+        ];
+        }
+      }
 }
