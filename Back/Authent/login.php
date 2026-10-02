@@ -27,7 +27,11 @@ class login{
                 "message" => "Email ou mot de passe incorrect"
             ]; 
         }
-        elseif(!password_verify($motDePasse, $utilisateur['MDPUTILISATEUR'])){
+        elseif(!password_verify(
+                $motDePasse,
+                $utilisateur['MDPUTILISATEUR']
+                )){
+
             return [
                 "success" => false,
                 "message" => "Email ou mot de passe incorrect"
@@ -35,13 +39,24 @@ class login{
         }
 
         else{
+            $actuel = new DateTime();
+            
+            $requete = $this->DB->prepare(
+                "UPDATE utilisateur SET DATEDERNIEREMODIFICATIONUTILISATEUR = :dateModification
+                WHERE NUMEROUTILISATEUR = :numeroUtilisateur"
+            );
+
+            $requete->execute([
+                ':dateModification' => $actuel->format('Y-m-d H:i:s'),
+                ':numeroUtilisateur' => $utilisateur['NUMEROUTILISATEUR']
+            ]);
+
             return [
                 "success" => true ,
                 "message" => "Connexion reussie",
                 "utilisateur" => $utilisateur
             ];
         }
-      }
 
     }catch(PDOException $e){
 

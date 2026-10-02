@@ -56,17 +56,7 @@ async function seConnecter() {
     erreur.value = 'Erreur de connexion au serveur'
   }
 }
-  // UTILISATEUR
-  if (email.value === 'user' && password.value === '1234') {
-    sessionStorage.setItem('connecte', 'true')
-    sessionStorage.setItem('role', 'utilisateur')
 
-    router.push('/utilisateur')
-    return
-  }
-
-  erreur.value = "Nom d'utilisateur ou mot de passe incorrect"
-}
 
 function inscription() {
   erreur.value = ''
@@ -196,13 +186,13 @@ function changerMode(nouveauMode) {
                 placeholder="••••••••"
               />
 
-              <button
-                type="button"
-                class="eye-button"
-                @click="afficherPassword = !afficherPassword"
-              >
-                {{ afficherPassword ? '🙈' : '👁' }}
-              </button>
+          <button
+            type="button"
+            class="eye-button"
+            @click="afficherPassword = !afficherPassword"
+          >
+          <i :class="afficherPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+          </button>
 
             </div>
 
