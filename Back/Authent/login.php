@@ -51,4 +51,7 @@ class login{
       ];
     }
 
+    public function inscription($connexion,$IdCommune, $Nom, $Prenom, $statut, $telephone, $email, $motDePasse){
+
+    }
 }
