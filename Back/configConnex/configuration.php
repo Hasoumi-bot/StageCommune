@@ -1,6 +1,6 @@
 <?php
 
-$host = "localhost";
-$dbname = "gestioncyclocua2026";
-$user = "root";
+$host     = "localhost";
+$dbname   = "gestioncyclocua2026";
+$user     = "root";
 $password = "";
