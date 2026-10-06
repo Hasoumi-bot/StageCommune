@@ -1,7 +1,35 @@
-<<<<<<< HEAD
-=======
-@import "tailwindcss";
+<template>
+    <aside :class="['sidebar', {ferme: !sidebarOuverture}]">
 
+        <button class="btn-sidebar" @click="basculerSidebar">
+            {{ sidebarOuverture ? '<' : '>' }}
+        </button>
+
+        <h2> Gestion Cylo-pousse </h2>
+
+        <nav>
+            <router-link to="/">Accueil</router-link>
+            <router-link to="/trajet">Trajets</router-link>
+        </nav>
+
+        <div class="carte">
+            <h3>Carte des trajets</h3>
+            <p>Voir les quartiers sur Google Maps.</p>
+        </div>
+
+    </aside>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+const sidebarOuverture = ref(true)
+
+function basculerSidebar() {
+    sidebarOuverture.value = !sidebarOuverture.value
+}
+</script>
+
+<style>
 /*
 * {
   box-sizing: border-box;
@@ -208,6 +236,7 @@ body {
 
 .contenu {
   width: 100%;
+  max-width: 860px;
 
   margin: 0 auto;
   
@@ -329,7 +358,17 @@ body {
 .btn-rechercher:hover {
   background: #0867ed;
 }
+
 */
+
+
+
+
+
+
+
+
+
 
 
 
@@ -463,4 +502,4 @@ body{
 .btn-rechercher:hover {
   background: #0867ed;
 } */
->>>>>>> origin/Tsiory
+</style>
